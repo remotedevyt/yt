@@ -1,0 +1,72 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+}
+body{
+    background-color: #111;
+}
+div{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.5em;
+}
+.wrap{
+    perspective: 800px;
+    perspective-origin: 50% 30%;
+    width: 90%;
+    margin:0 auto;
+    height: 70vh;
+    padding-top:10px;
+}
+.cube{
+    position: relative;
+    width: 200px;
+    transform-style: preserve-3d;
+    margin: 10% auto;
+    animation: spin 5s infinite linear;
+    animation-play-state: running;
+}
+.cube div{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 160%;
+    border: 1px solid #eee;
+    background: linear-gradient(45deg,rgba(10,50,0,0.5),rgba(10,50,70,0.5));
+}
+.cube div:hover{
+    cursor: pointer;
+}
+.cube:hover{
+    animation-play-state: paused;
+}
+.back{
+    transform: translateZ(-100px) rotateY(180deg);
+}
+.right{
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+}
+.left{
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: center left;
+}
+.top{
+    transform: rotateX(-90deg) translateY(-100px);
+    transform-origin: top center;
+}
+.bottom{
+    transform: rotateX(90deg) translateY(100px);
+    transform-origin: bottom center;
+}
+.front{
+    transform: translateZ(100px);
+}
+@keyframes spin{
+    from{transform: rotateY(0deg);}
+    to{transform: rotateY(-360deg);}
+}
